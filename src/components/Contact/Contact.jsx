@@ -10,7 +10,7 @@ export default function Contact({ contact: { name, number, id }, onDelete }) {
           <RiContactsFill size={26} />
           <p>{name}</p>
         </div>
-        <a href="tel:{contact.number}" className={css.contactInfo}>
+        <a href={`tel:${number}`} className={css.contactInfo}>
           <FaPhone size={26} />
           <p>{number}</p>
         </a>
