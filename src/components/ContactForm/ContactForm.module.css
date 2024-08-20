@@ -7,6 +7,14 @@
   padding: 8px 12px;
   font-size: 18px;
 }
+
+
+@media (prefers-color-scheme: light) {
+ .container {
+    border: 1px solid #213547;
+ }
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -25,7 +33,6 @@
 
 .input {
   width: 100%;
-  border: 1px solid white;
   border-radius: 2px;
   padding: 3px 5px;
   background-color: transparent;

@@ -5,13 +5,18 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #313131;
+  background-color: #213547;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+input {
+  border: 1px solid rgba(255, 255, 255, 0.87);
+}
+
 
 a {
   font-weight: 500;
@@ -49,8 +54,15 @@ button:focus-visible {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #cecdcdb1;
   }
+  input {
+    border: 1px solid #213547;
+  }
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
 }
 
 h1,

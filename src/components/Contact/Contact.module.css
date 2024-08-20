@@ -10,6 +10,12 @@
   font-size: 14px;
 }
 
+@media (prefers-color-scheme: light) {
+ .container {
+    border: 1px solid #213547;
+ }
+}
+
 .contactInfo {
   display: flex;
   align-items: center;
