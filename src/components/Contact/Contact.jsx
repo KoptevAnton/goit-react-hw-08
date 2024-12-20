@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contactsSlice";
+import { deleteContact, editContact } from "../../redux/contactsOps";
 
 import { RiContactsFill } from "react-icons/ri";
 import { FaPhone } from "react-icons/fa6";
@@ -14,20 +14,37 @@ export default function Contact({ contact: { name, number, id } }) {
       <div className={css.contactInfoWrapper}>
         <div className={css.contactInfo}>
           <RiContactsFill size={26} />
-          <p>{name}</p>
+          <p className={css.textName}>{name}</p>
         </div>
         <a href={`tel:${number}`} className={css.contactInfo}>
           <FaPhone size={26} />
           <p>{number}</p>
         </a>
       </div>
-      <button
-        type="button"
-        className={css.button}
-        onClick={() => dispatch(deleteContact(id))}
-      >
-        Delete
-      </button>
+      <div className={css.btnContainer}>
+        <button
+          type="button"
+          className={css.button}
+          onClick={() =>
+            dispatch(
+              editContact({
+                id,
+                name: prompt("Enter new name") ?? name,
+                number: prompt("Enter new number") ?? number,
+              })
+            )
+          }
+        >
+          Edit
+        </button>
+        <button
+          type="button"
+          className={css.button}
+          onClick={() => dispatch(deleteContact(id))}
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 }
