@@ -4,7 +4,7 @@ import { deleteContact, editContact } from "../../redux/contactsOps";
 import { RiContactsFill } from "react-icons/ri";
 import { FaPhone } from "react-icons/fa6";
 
-import css from "./Contact.module.css";
+import css from "./Contact.module.scss";
 
 export default function Contact({ contact: { name, number, id } }) {
   const dispatch = useDispatch();
@@ -14,11 +14,11 @@ export default function Contact({ contact: { name, number, id } }) {
       <div className={css.contactInfoWrapper}>
         <div className={css.contactInfo}>
           <RiContactsFill size={26} />
-          <p className={css.textName}>{name}</p>
+          <p className={css.text}>{name}</p>
         </div>
         <a href={`tel:${number}`} className={css.contactInfo}>
           <FaPhone size={26} />
-          <p>{number}</p>
+          <p className={css.text}>{number}</p>
         </a>
       </div>
       <div className={css.btnContainer}>

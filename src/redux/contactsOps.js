@@ -10,6 +10,9 @@ export const fetchContacts = createAsyncThunk(
       const response = await axios.get("/contacts");
       return response.data;
     } catch (error) {
+      if (error.response && error.response.status === 404) {
+        return thunkAPI.rejectWithValue("Contacts not found (404 error)");
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -39,11 +42,14 @@ export const addContact = createAsyncThunk(
   }
 );
 
-export const editContact = createAsyncThunk("contacts/editContact", async (body, thunkAPI) => {
+export const editContact = createAsyncThunk(
+  "contacts/editContact",
+  async (body, thunkAPI) => {
     try {
-        const response = await axios.put(`/contacts/${body.id}`, body)
-        return response.data
+      const response = await axios.put(`/contacts/${body.id}`, body);
+      return response.data;
     } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
-});
+  }
+);

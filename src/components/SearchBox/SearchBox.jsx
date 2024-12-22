@@ -6,8 +6,8 @@ import css from "./SearchBox.module.css";
 
 export default function SearchBox() {
   const id = useId();
-  const dispatch = useDispatch()
-  
+  const dispatch = useDispatch();
+
   return (
     <div className={css.container}>
       <label className={css.label} htmlFor={`${id}-name`}>

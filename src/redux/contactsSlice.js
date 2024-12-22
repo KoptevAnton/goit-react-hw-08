@@ -8,14 +8,7 @@ import {
 } from "./contactsOps";
 
 const initialState = {
-  items: [
-    {
-      createdAt: "2024-12-18T19:12:00.352Z",
-      name: "Anna",
-      number: "263-702-4520",
-      id: "0",
-    },
-  ],
+  items: [],
   loading: false,
   error: null,
 };
@@ -23,22 +16,26 @@ const initialState = {
 const slice = createSlice({
   name: "contacts",
   initialState,
+  reducers: {
+    setError: (state, action) => {
+      state.error = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder
-      // TODO: destructurize payload
-      .addCase(fetchContacts.fulfilled, (state, action) => {
-        state.items = action.payload;
+      .addCase(fetchContacts.fulfilled, (state, { payload }) => {
+        state.items = payload;
       })
-      .addCase(deleteContact.fulfilled, (state, action) => {
-        state.items = state.items.filter(item => item.id !== action.payload);
+      .addCase(deleteContact.fulfilled, (state, { payload }) => {
+        state.items = state.items.filter(item => item.id !== payload);
       })
       .addCase(addContact.fulfilled, (state, action) => {
         state.items.push(action.payload);
       })
-      .addCase(editContact.fulfilled, (state, action) => {
-        const item = state.items.find(item => item.id === action.payload.id);
-        item.name = action.payload.name;
-        item.number = action.payload.number;
+      .addCase(editContact.fulfilled, (state, { payload }) => {
+        const item = state.items.find(item => item.id === payload.id);
+        item.name = payload.name;
+        item.number = payload.number;
       })
       .addMatcher(
         isAnyOf(
@@ -47,7 +44,7 @@ const slice = createSlice({
           addContact.fulfilled,
           editContact.fulfilled
         ),
-        (state, action) => {
+        state => {
           state.loading = false;
         }
       )
@@ -58,9 +55,9 @@ const slice = createSlice({
           addContact.pending,
           editContact.pending
         ),
-        (state, action) => {
+        state => {
           state.loading = true;
-          state.error = false;
+          state.error = null;
         }
       )
       .addMatcher(
@@ -70,9 +67,10 @@ const slice = createSlice({
           addContact.rejected,
           editContact.rejected
         ),
-        (state, action) => {
+        (state, { payload }) => {
+          console.error("Error:", payload);
           state.loading = false;
-          state.error = true;
+          state.error = payload || "Something went wrong";
         }
       );
   },
@@ -85,7 +83,6 @@ export const selectLoading = state => state.contacts.loading;
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectNameFilter],
   (items, name) => {
-    console.log('first')
     const filteredItems = items.filter(item =>
       item.name.toLowerCase().includes(name.toLowerCase())
     );
@@ -93,4 +90,5 @@ export const selectFilteredContacts = createSelector(
   }
 );
 
+export const { setError } = slice.actions;
 export const contactsReducer = slice.reducer;
