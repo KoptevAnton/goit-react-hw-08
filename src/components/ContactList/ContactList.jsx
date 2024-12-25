@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { setError } from "../../redux/contacts/slice";
 import {
   selectContacts,
   selectError,
   selectFilteredContacts,
-  setError,
-} from "../../redux/contactsSlice";
+} from "../../redux/contacts/selectors";
 
 import Contact from "../Contact/Contact";
 

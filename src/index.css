@@ -100,9 +100,9 @@ img {
 
 /* change the color of the error message */
 div.go2072408551 {
-  border: 1px solid #ff5733;
+  border: 1px solid #a52c11;
   background: #1a1a1a;
-  color: #ff5733;
+  color: #a52c11;
   @media (prefers-color-scheme: light) {
     background: #cecdcd;
   }
