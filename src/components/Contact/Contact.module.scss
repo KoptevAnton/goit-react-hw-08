@@ -7,7 +7,7 @@
   gap: 8px;
   border: 1px solid rgba(var(--text-color), 0.9);
   border-radius: 10px;
-  width: 250px;
+  max-width: 280px;
   padding: 8px 12px;
   font-size: 14px;
   overflow: auto;
@@ -39,7 +39,7 @@
 }
 
 .text {
-  max-width: 150px;
+  width: 150px;
   height: 24px;
   text-align: left;
   overflow: auto;
