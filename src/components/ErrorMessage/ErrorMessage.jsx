@@ -1,14 +1,27 @@
 import { useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
-const ErrorMessage = ({ error }) => {
+const ErrorMessage = ({ errorContact, errorAuth }) => {
   useEffect(() => {
-    if (error) {
-      toast.error(error);
+    if (errorContact) {
+      toast.error(errorContact);
     }
-  }, [error]);
+  }, [errorContact]);
 
-  return <Toaster />;
+  useEffect(() => {
+    if (errorAuth) {
+      toast.error(errorAuth);
+    }
+  }, [errorAuth]);
+
+  return (
+    <Toaster
+      position="top-right"
+      toastOptions={{
+        duration: 3000,
+      }}
+    />
+  );
 };
 
 export default ErrorMessage;

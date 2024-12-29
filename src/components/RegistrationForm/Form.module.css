@@ -1,11 +1,20 @@
 .container {
-  margin: 0 auto 28px auto;
-  border: 1px solid rgba(var(--text-color), 0.95);
-  border-radius: 8px;
-  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+.wrapper {
+  margin: 0 auto;
+  margin-bottom: 28px;
+  border: 1px solid rgb(var(--text-color), 0.9);
+  border-radius: 10px;
+  max-width: 350px;
   padding: 8px 12px;
   font-size: 18px;
 }
+
+
 
 .form {
   display: flex;
@@ -16,15 +25,16 @@
 
 .labelInput {
   position: relative;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: start;
+  width: 100%;
   gap: 8px;
+  margin-bottom: 10px;
 }
 
 .input {
-  border-radius: 4px;
+  border-radius: 2px;
   width: 100%;
   padding: 3px 5px;
   background-color: transparent;
@@ -37,4 +47,9 @@
   transform: translate(-5%, 0%);
   font-size: 14px;
   color: red;
+}
+
+.wrapperBtn {
+  display: flex;
+  gap: 10px;
 }

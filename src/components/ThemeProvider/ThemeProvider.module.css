@@ -1,0 +1,16 @@
+.wrapper {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+}
+
+.btn {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    opacity: 0.75;
+}

@@ -1,0 +1,15 @@
+.container {
+  box-shadow: 4px 4px 12px 0px rgba(var(--text-color), 0.5);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  padding: 6px 8px;
+  @media only screen and (min-width: 653px) {
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    justify-content: space-between;
+  }
+}

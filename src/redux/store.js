@@ -15,14 +15,13 @@ import {
 import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
-  key: "root",
+  key: "auth",
   version: 1,
   storage,
   whiteList: ["token"],
 };
 
 const persistedReducer = persistReducer(persistConfig, authReducer);
-
 
 export const store = configureStore({
   reducer: {
@@ -38,5 +37,4 @@ export const store = configureStore({
     }),
 });
 
-export const persistor = persistStore(store)
-
+export const persistor = persistStore(store);

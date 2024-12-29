@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.navLink {
+  color: var(--navLink-color);
+  font-weight: 600;
+}
+
+.navLink:hover {
+  color: var(--navLink-hover-color);
+}
+
+.isActive {
+  color: var(--navLink-active-color);
+  font-weight: 700;
+  text-decoration: underline;
+}

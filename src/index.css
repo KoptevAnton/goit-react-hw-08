@@ -1,11 +1,30 @@
+.dark-theme {
+  --background-color: rgb(33, 53, 71);
+  --text-color: 255, 255, 255;
+  --button-bg-color: #4e4e4e;
+  --button-hover-color: #8287e3;
+  --navLink-color: #2f8894;
+  --navLink-hover-color: #36a7b6;
+  --navLink-active-color: #36c6d9;
+}
+
+.light-theme {
+  --background-color: rgb(255, 255, 255);
+  --text-color: 33, 53, 71;
+  --button-bg-color: #b1adad;
+  --button-hover-color: #4449a8;
+  --navLink-color: #25a0b0;
+  --navLink-hover-color: #1f7f8c;
+  --navLink-active-color: #18616b;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #213547;
+  color: rgba(var(--text-color), 0.95);
+  background-color: var(--background-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,8 +32,30 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 4px 8px;
+  font-weight: 500;
+  font-family: inherit;
+  color: rgba(var(--text-color), 0.95);
+  background-color: var(--button-bg-color);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+button:hover {
+  color: var(--background-color);
+  background-color: var(--button-hover-color);
+}
+button:focus,
+button:focus-visible {
+  color: rgba(var(--text-color), 0.95);
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
 input {
-  border: 1px solid rgba(255, 255, 255, 0.87);
+  color: rgba(var(--text-color), 0.8);
+  border: 1px solid rgba(var(--text-color), 0.8);
 }
 
 a {
@@ -24,42 +65,11 @@ a {
 }
 
 a:hover {
-  color: #535bf2;
+  color: var(--button-hover-color);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 4px 8px;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #cecdcd;
-  }
-
-  input {
-    border: 1px solid #213547;
-  }
+body {
+  margin: 0;
 }
 
 * {
@@ -98,12 +108,18 @@ img {
   height: auto;
 }
 
+.container {
+  margin: 0 auto;
+  padding: 0 16px;
+  @media only screen and (min-width: 653px) {
+    padding: 0 32px;
+  }
+}
+
 /* change the color of the error message */
 div.go2072408551 {
-  border: 1px solid #a52c11;
-  background: #1a1a1a;
-  color: #a52c11;
-  @media (prefers-color-scheme: light) {
-    background: #cecdcd;
-  }
+  box-shadow: 4px 4px 12px 0px rgba(var(--text-color), 0.5);
+  border: 1px solid rgba(var(--text-color), 0.95);
+  background: var(--background-color);
+  color: rgba(var(--text-color), 0.95);
 }

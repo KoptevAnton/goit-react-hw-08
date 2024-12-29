@@ -9,7 +9,7 @@ import {
 
 import Contact from "../Contact/Contact";
 
-import css from "./ContactList.module.css";
+import s from "./ContactList.module.css";
 
 export default function ContactList() {
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ export default function ContactList() {
   }, [filteredItems, contacts, error, dispatch]);
 
   return (
-    <ul className={css.list}>
+    <ul className={s.list}>
       {filteredItems.map(item => (
         <li key={item.id}>
           <Contact contact={item} />
