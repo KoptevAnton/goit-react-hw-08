@@ -31,7 +31,7 @@ export const register = createAsyncThunk(
     } catch (error) {
       if (error.response && error.response.status === 400) {
         return thunkApi.rejectWithValue(
-          "SorryFFF. Maybe user with these credentials already exists. (status code 400)"
+          "Sorry. Maybe user with these credentials already exists. (status code 400)"
         );
       }
       return thunkApi.rejectWithValue(error.message);
