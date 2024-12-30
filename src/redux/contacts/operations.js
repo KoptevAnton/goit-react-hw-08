@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { goitApi } from "../auth/operation";
+import { goitApi } from "../auth/operations";
 import toast from "react-hot-toast";
 
 export const fetchContacts = createAsyncThunk(

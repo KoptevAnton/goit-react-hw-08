@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { clearError } from "../redux/auth/slice";
-import { refreshUser } from "../redux/auth/operation";
+import { refreshUser } from "../redux/auth/operations";
 import { selectError } from "../redux/contacts/selectors";
 import {
   selectIsErrorAuth,

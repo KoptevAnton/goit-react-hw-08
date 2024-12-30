@@ -4,7 +4,7 @@ import {
   deleteContact,
   editContact,
   fetchContacts,
-} from "./operation";
+} from "./operations";
 
 const initialState = {
   items: [],

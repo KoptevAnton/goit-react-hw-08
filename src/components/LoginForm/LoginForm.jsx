@@ -1,8 +1,8 @@
-import {  useId } from "react";
+import { useId } from "react";
 import { Link } from "react-router";
 import { useDispatch } from "react-redux";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import { login } from "../../redux/auth/operation";
+import { login } from "../../redux/auth/operations";
 
 import * as Yup from "yup";
 import s from "../RegistrationForm/Form.module.css";
@@ -17,7 +17,7 @@ export default function LoginForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    dispatch(login(values))
+    dispatch(login(values));
     actions.resetForm();
   };
 

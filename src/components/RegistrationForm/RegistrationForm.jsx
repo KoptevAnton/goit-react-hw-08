@@ -2,7 +2,7 @@ import { useId } from "react";
 import { Link } from "react-router";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
-import { register } from "../../redux/auth/operation";
+import { register } from "../../redux/auth/operations";
 
 import * as Yup from "yup";
 import s from "./Form.module.css";
